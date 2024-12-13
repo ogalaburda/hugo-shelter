@@ -1,0 +1,95 @@
+{
+    "type": "Header",
+    "colors": "bg-light-fg-dark",
+    "logo": {
+        "url": "/images/logo.png",
+        "altText": "Logo",
+        "styles": {
+            "self": {
+                "margin": ["mr-3"]
+            }
+        },
+        "type": "ImageBlock"
+    },
+    "title": "Fur Shelter",
+
+    "primaryLinks": [
+        {
+            "label": "Home",
+            "altText": "Home",
+            "url": "/",
+            "labelStyle": "primary",
+            "type": "SubNav",
+            "links": [
+                {
+                    "label": "Adopt",
+                    "url": "/adopt",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "Home Sub2",
+                    "url": "/homesub2",
+                    "style": "dropdown",
+                    "type": "Link"
+                }
+            ]            
+        },
+        {
+            "label": "Abouttttttttttttt",
+            "altText": "About",
+            "url": "/about",
+            "labelStyle": "primary",
+            "type": "SubNav",
+            "links": [
+                {
+                    "label": "About Sub1",
+                    "url": "/about/aboutsub1",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "About Sub2",
+                    "url": "/about/aboutsub2",
+                    "style": "dropdown",
+                    "type": "Link"
+                }
+            ]            
+        },
+        {
+            "label": "Contact",
+            "altText": "Contact",
+            "labelStyle": "primary",
+            "type": "SubNav",
+            "links": [
+                {
+                    "label": "Contact Sub1 contact contact contact",
+                    "url": "/contactsub1",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "Contact Sub2",
+                    "url": "/contactsub2",
+                    "style": "dropdown",
+                    "type": "Link"
+                }
+            ]            
+        }
+    ],
+    "secondaryLinks": [
+        {
+            "label": "Sign up",
+            "altText": "Sign up",
+            "url": "/signup",
+            "style": "primary",
+            "type": "Button"
+        },
+        {
+            "label": "Log in",
+            "url": "/login",
+            "style": "primary",
+            "type": "Button"
+        }
+    ]
+}

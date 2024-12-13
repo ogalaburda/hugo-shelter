@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "es2018",
+    "jsx": "preserve",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "incremental": true,
+    "moduleResolution": "node"
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+, "src/pages/_app.tsx"  ],
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
+}

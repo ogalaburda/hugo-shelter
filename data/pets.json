@@ -1,0 +1,293 @@
+[
+  {
+    "id": "0",
+    "status": "",
+    "type": "cat",
+    "breed": "american shorthair",
+    "sex": "",
+    "name": "Angel",
+    "dob": "",
+    "dis": "",
+    "location": "",
+    "weight": "13",
+    "color": "",
+    "medication": "no",
+    "personality": [
+      "shy",
+      "sidekick"
+    ],
+    "goodWithCats": "yes",
+    "goodWithDogs": "no",
+    "image": "",
+    "additionalImages": [
+      "/images/angel.jpg"
+    ],
+    "description": "description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description",
+    "history": "history history history history history history history history history. history history history history history history history history history. history history history history history history history history history. history history history history history history history history history, history history history history history history history history history"
+  },
+  {
+    "id": "1",
+    "status": "available",
+    "type": "cat",
+    "breed": "",
+    "sex": "female",
+    "name": "Clay",
+    "dob": "2018-02-03",
+    "dis": "2019-12-03",
+    "location": "Foster",
+    "weight": "9",
+    "color": "black",
+    "medication": "no",
+    "personality": [
+      "love bug",
+      "party animal"
+    ],
+    "goodWithCats": "yes",
+    "goodWithDogs": "yes",
+    "image": "",
+    "additionalImages": [
+      "/images/clay.jpg"
+    ],
+    "description": "",
+    "history": ""
+  },
+  {
+    "id": "2",
+    "status": "adopted",
+    "type": "cat",
+    "breed": "",
+    "sex": "female",
+    "name": "Duck",
+    "dob": "2024-10-03",
+    "dis": "2024-09-03",
+    "location": "CAC Shelter",
+    "weight": "5",
+    "color": "white",
+    "medication": "no",
+    "personality": [
+      "personal assistant",
+      "sidekick"
+    ],
+    "goodWithCats": "",
+    "goodWithDogs": "yes",
+    "image": "",
+    "additionalImages": [
+      "/images/duck.jpg"
+    ],
+    "description": "",
+    "history": ""
+  },
+  {
+    "id": "3",
+    "status": "available",
+    "type": "cat",
+    "breed": "",
+    "sex": "male",
+    "name": "Kylie",
+    "dob": "2024-11-03",
+    "dis": "2024-11-03",
+    "location": "Fulton Shelter",
+    "weight": "10",
+    "color": "orange",
+    "medication": "no",
+    "personality": [
+      "love bug",
+      "sidekick"
+    ],
+    "goodWithCats": "no",
+    "goodWithDogs": "",
+    "image": "",
+    "additionalImages": [
+      "/images/kylie.jpg"
+    ],
+    "description": "",
+    "history": ""
+  },
+  {
+    "id": "4",
+    "status": "available",
+    "type": "cat",
+    "breed": "",
+    "sex": "male",
+    "name": "Lobo",
+    "dob": "2021-12-03",
+    "dis": "2022-12-03",
+    "location": "CAC Shelter",
+    "weight": "",
+    "color": "taksido",
+    "medication": "no",
+    "personality": [],
+    "goodWithCats": "no",
+    "goodWithDogs": "",
+    "image": "",
+    "additionalImages": [
+      "/images/lobo.jpg"
+    ],
+    "description": "",
+    "history": ""
+  },
+  {
+    "id": "5",
+    "status": "available",
+    "type": "dog",
+    "breed": "hasky",
+    "sex": "male",
+    "name": "Max",
+    "dob": "2014-12-03",
+    "dis": "2022-12-03",
+    "location": "Home",
+    "weight": "30",
+    "color": "black and white",
+    "medication": "no",
+    "personality": [
+      "love bug",
+      "sidekick"
+    ],
+    "goodWithCats": "no",
+    "goodWithDogs": "",
+    "image": "",
+    "additionalImages": [
+      "/images/max.jpg"
+    ],
+    "description": "",
+    "history": ""
+  },
+  {
+    "id": "1733792423475",
+    "status": "",
+    "image": "",
+    "additionalImages": [
+      "/images/1733792423475/1000005351.jpg",
+      "/images/1733792423475/1000005336.jpg",
+      "/images/1733792423475/1000005341.jpg",
+      "/images/1733792423475/1000005352.mp4",
+      "/images/1733792423475/1000005334.jpg",
+      "/images/1733792423475/1000005336.jpg",
+      "/images/1733792423475/1000005331.jpg",
+      "/images/1733792423475/1000005334.jpg",
+      "/images/1733792423475/1000005336.jpg",
+      "/images/1733792423475/1000005341.jpg",
+      "/images/1733792423475/1000005347.jpg",
+      "/images/1733792423475/1000005351.jpg",
+      "/images/1733792423475/1000005352.mp4"
+    ],
+    "type": "dog",
+    "breed": "Puddle",
+    "sex": "female",
+    "name": "seven",
+    "dob": "2024-08-06",
+    "dis": "2024-12-09",
+    "location": "Foster",
+    "weight": "156",
+    "color": "Black",
+    "medication": "yes",
+    "goodWithCats": "yes",
+    "goodWithDogs": "yes",
+    "description": "oksana oksan oksana oksana",
+    "history": "oksana oksan oksana oksana",
+    "personality": [
+      "sidekick",
+      "shy",
+      "love bug",
+      "party animal"
+    ]
+  },
+  {
+    "id": "1733871940351",
+    "status": "",
+    "image": "",
+    "additionalImages": [
+      "/images/1733871940351/1000005331.jpg",
+      "/images/1733871940351/1000005347.jpg",
+      "/images/1733871940351/1000005351.jpg",
+      "/images/1733871940351/1000005352.mp4"
+    ],
+    "type": "dog",
+    "breed": "Black",
+    "sex": "male",
+    "name": "Roxy",
+    "dob": "2024-04-29",
+    "dis": "2024-12-10",
+    "location": "Foster",
+    "weight": "23",
+    "color": "Gold",
+    "medication": "no",
+    "personality": [
+      "shy",
+      "sidekick",
+      "love bug",
+      "leader of the band",
+      "party animal"
+    ],
+    "goodWithCats": "yes",
+    "goodWithDogs": "yes",
+    "description": "Oksana",
+    "history": "Changing the data "
+  },
+  {
+    "id": "1733892072598",
+    "status": "",
+    "image": "",
+    "additionalImages": [
+      "/images/1733892072598/20241119_183426.jpg",
+      "/images/1733892072598/20241119_183429.jpg",
+      "/images/1733892072598/20241119_183434.mp4",
+      "/images/1733892072598/20241119_185544.jpg"
+    ],
+    "type": "dog",
+    "breed": "Puddle",
+    "sex": "male",
+    "name": "Test",
+    "dob": "2024-07-15",
+    "dis": "2024-12-09",
+    "location": "Foster",
+    "weight": "34",
+    "color": "brown",
+    "medication": "no",
+    "personality": [
+      "shy",
+      "sidekick",
+      "love bug",
+      "party animal",
+      "leader of the band"
+    ],
+    "goodWithCats": "no",
+    "goodWithDogs": "no",
+    "description": "Pet description",
+    "history": "History description"
+  },
+  {
+    "id": "1733893371746",
+    "status": "",
+    "additionalImages": [
+      "/images/1733893371746/1000005393.jpg",
+      "/images/1733893371746/1000005395.jpg",
+      "/images/1733893371746/1000005397.mp4",
+      "/images/1733893371746/1000005398.mp4",
+      "/images/1733893371746/1000005400.jpg",
+      "/images/1733893371746/1000005403.mp4",
+      "/images/1733893371746/Kylie.jpg"
+    ],
+    "type": "other",
+    "breed": "the best",
+    "sex": "female",
+    "name": "Lucky",
+    "dob": "2024-12-09",
+    "dis": "2024-12-10",
+    "location": "CAC",
+    "weight": "5",
+    "color": "Gold",
+    "medication": "no",
+    "personality": [
+      "shy",
+      "sidekick",
+      "love bug",
+      "party animal",
+      "leader of the band"
+    ],
+    "goodWithCats": "no",
+    "goodWithDogs": "no",
+    "description": "description des desdesdesdesdesdesdes des des des des des des des des des des des des des des des des",
+    "history": "History History History History History History History History History History History History History History History "
+  }
+]
