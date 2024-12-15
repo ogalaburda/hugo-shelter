@@ -4,7 +4,7 @@ import MediaUploadBlock from 'components/blocks/MediaUploadBlock';
 
 interface AddPetFormProps {
     initialData?: Partial<typeof initialFormData>;
-    onSubmit: (formData: FormData) => Promise<void>;
+    onSubmit: (formData: FormData) => Promise<{ message: string }>;
     onCancel?: () => void;
 }
 
@@ -53,20 +53,21 @@ const AddPetForm: React.FC<AddPetFormProps> = ({ initialData = {}, onSubmit, onC
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    
+
         const formDataToSend = new FormData();
-    
+
         if (!formData.id) {
-            // Generate a new ID only for new pets
-            formDataToSend.append('id', Date.now().toString());
+            const newId = Date.now().toString(); // Generate a new ID
+            formDataToSend.append('id', newId);
+            setFormData((prevState) => ({ ...prevState, id: newId })); // Update state with the generated ID
         } else {
             formDataToSend.append('id', formData.id);
         }
-    
+
         // Append other fields
         Object.entries(formData).forEach(([key, value]) => {
             if (key === 'image' || key === 'additionalImages') return;
-    
+
             if (key === 'personality' && Array.isArray(value)) {
                 // Append each personality trait as a separate entry
                 value.forEach((trait) => formDataToSend.append(key, trait));
@@ -80,17 +81,23 @@ const AddPetForm: React.FC<AddPetFormProps> = ({ initialData = {}, onSubmit, onC
         // Append additional images
         if (formData.additionalImages.length > 0) {
             formData.additionalImages.forEach((file) => {
-                if (file instanceof File) 
+                if (file instanceof File) {
                     formDataToSend.append('additionalImages', file);
+                }
             });
         }
-
-        // Append ID for updates
-        if (formData.id) {
-            formDataToSend.append('id', formData.id);
+    
+        try {
+            const response = await onSubmit(formDataToSend);
+            if (response?.message.includes('Duplicate ID')) {
+                alert('Duplicate ID detected. Please try again.');
+            } else {
+                alert(response.message);
+            }
+        } catch (error) {
+            console.error('Error submitting the form:', error);
+            alert('An error occurred while submitting the form.');
         }
-
-        await onSubmit(formDataToSend);
     };
 
     return (
@@ -233,10 +240,10 @@ const AddPetForm: React.FC<AddPetFormProps> = ({ initialData = {}, onSubmit, onC
                 onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-lg p-2"
             >
-                <option value="">Select</option>
+                <option value=""></option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
-                <option value="no">Unknown</option>
+                <option value="unknown">Unknown</option>
             </select>
             <br />
             <br />
@@ -249,10 +256,10 @@ const AddPetForm: React.FC<AddPetFormProps> = ({ initialData = {}, onSubmit, onC
                 onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-lg p-2"
             >
-                <option value="">Select</option>
-                <option value="yes">Yes</option>
+                <option value=""></option>
+                <option value="like">Like</option>
                 <option value="no">No</option>
-                <option value="no">Unknown</option>
+                <option value="unknown">Unknown</option> {/* Fix: Ensure unique value */}
             </select>
             <br />
             <br />
@@ -265,10 +272,10 @@ const AddPetForm: React.FC<AddPetFormProps> = ({ initialData = {}, onSubmit, onC
                 onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-lg p-2"
             >
-                <option value="">Select</option>
+                <option value=""></option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
-                <option value="no">Unknown</option>
+                <option value="unknown">Unknown</option>
             </select>
             <br />
             <br />

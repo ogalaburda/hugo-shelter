@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Filter from 'components/blocks/filterBox';
-import Grid from '../../components/sections/grid';
-import petData from '../../../data/pets.json';
-import { calculateAge } from '../../utils/ageCalculator';
-import { calculateShelterTime } from '../../utils/timeInShelterCalculator';
+import Grid from '../../../components/sections/grid';
+import petData from '../../../../data/pets.json';
+import { calculateAge } from '../../../utils/ageCalculator';
+import { calculateShelterTime } from '../../../utils/timeInShelterCalculator';
 import { weightRanges, ageRanges } from 'utils/utils';
 
 const Adopt = () => {
@@ -16,6 +16,16 @@ const Adopt = () => {
 
     // Initialize state with transformed data
     const [filteredData, setFilteredData] = useState(petsData);
+    const [currentPage, setCurrentPage] = useState(1);
+    const petsPerPage = 9;
+
+    // Calculate the current page data
+    const startIndex = (currentPage - 1) * petsPerPage;
+    const endIndex = startIndex + petsPerPage;
+    const currentData = filteredData.slice(startIndex, endIndex);
+
+    const totalPages = Math.ceil(filteredData.length / petsPerPage);
+
 
     const handleFilterChange = (filters: Record<string, any>) => {
         let updatedData = [...petsData];
@@ -142,20 +152,56 @@ const Adopt = () => {
         }
 
         setFilteredData(updatedData);
+        setCurrentPage(1); // Reset to the first page after filtering
+    };
+
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage);
     };
 
     return (
         <div className="flex h-screen">
             {/* Left rail with filters */}
-            <aside className="w-1/4 bg-gray-100 p-4 [1]flow-y-auto sticky top-0">
-                <div className="mt-4 text-lg font-semibold">Total Results: {filteredData.length}</div>
+            <aside className="w-1/4 bg-gray-100 p-4 overflow-y-auto h-full sticky top-0">
+                <div className="mt-4 text-lg font-semibold">
+                    Total Results: {filteredData.length}
+                </div>
                 <Filter onFilterChange={handleFilterChange} />
             </aside>
-
+    
             {/* Right rail with pet grid */}
-            <main className="w-3/4 p-4 overflow-y-auto">
-                <h1 className="text-center font-bold text-2xl mb-6">Meet Our Lovely Pets</h1>
-                <Grid items={filteredData} />
+            <main className="w-3/4 p-4 overflow-y-auto h-full">
+            <div className="flex items-center mb-6">
+        <div className="flex-grow border-t border-blue-700"></div>
+        <h1 className="text-center font-bold text-2xl mx-4 text-blue-700">Find Your New Best Friend</h1>
+        <div className="flex-grow border-t border-blue-700"></div>
+    </div>
+                <Grid items={currentData} />
+    
+                {/* Pagination Controls */}
+                <div className="flex justify-center items-center mt-6 space-x-4">
+                    <button
+                        disabled={currentPage === 1}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        className={`px-4 py-2 rounded ${
+                            currentPage === 1 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'
+                        }`}
+                    >
+                        Previous
+                    </button>
+                    <span className="text-lg font-medium">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                        disabled={currentPage === totalPages}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        className={`px-4 py-2 rounded ${
+                            currentPage === totalPages ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'
+                        }`}
+                    >
+                        Next
+                    </button>
+                </div>
             </main>
         </div>
     );

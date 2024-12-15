@@ -20,15 +20,15 @@ const Grid: React.FC<GridProps> = ({ items }) => {
                 return (
                     <Link
                         key={item.id}
-                        href={item.url || `/adopt/${item.id}`} // Use `url` if provided
-                        className="block overflow-hidden cursor-pointer border rounded-lg p-2 shadow hover:shadow-md transition"
+                        href={item.url || `/pets/adopt/${item.id}`} // Use `url` if provided
+                        className="block overflow-hidden rounded-lg border shadow-md transition transform hover:scale-105"
                     >
                         {/* Main Image Display */}
                         <div className="relative aspect-w-4 aspect-h-3 overflow-hidden">
                             <MediaDisplayBlock
                                 url={gridImage}
                                 altText={`Image of ${item.name}`}
-                                className="object-cover w-full h-full"
+                                className="object-cover w-full h-full transition duration-300 ease-in-out"
                             />
                         </div>
                         <div className="p-1 text-center">

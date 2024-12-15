@@ -17,23 +17,23 @@ const UpdatePetPage = () => {
         }
     }, [id]);
 
-    const handleUpdatePet = async (formData: FormData) => {
+    const handleUpdatePet = async (formData: FormData): Promise<{ message: string }> => {
         try {
             const response = await fetch('/api/update-pet', {
                 method: 'POST',
                 body: formData, // Send the form data directly
             });
-
+    
             if (response.ok) {
-                alert('Pet updated successfully!');
-                router.push(`/adopt/${id}`); // Redirect back to the pet profile
+                const responseData = await response.json();
+                return { message: responseData.message || 'Pet updated successfully!' };
             } else {
                 const errorData = await response.json();
-                console.error('Error response:', errorData);
-                alert('Failed to update pet.');
+                return { message: errorData.message || 'Failed to update pet.' };
             }
         } catch (error) {
             console.error('Error updating the pet:', error);
+            return { message: 'An error occurred while updating the pet.' };
         }
     };
 

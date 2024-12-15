@@ -11,66 +11,163 @@
         },
         "type": "ImageBlock"
     },
-    "title": "Fur Shelter",
+    "title": "",
 
     "primaryLinks": [
         {
-            "label": "Home",
-            "altText": "Home",
-            "url": "/",
+            "label": "PETS",
+            "altText": "Pets",
+            "url": "/pets",
             "labelStyle": "primary",
             "type": "SubNav",
             "links": [
                 {
-                    "label": "Adopt",
-                    "url": "/adopt",
+                    "label": "ADOPT",
+                    "url": "/pets/adopt",
                     "style": "dropdown",
                     "type": "Link"
                 },
                 {
-                    "label": "Home Sub2",
-                    "url": "/homesub2",
+                    "label": "PET CARE",
+                    "url": "/pets/petcare",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "PET HELP & RESOURCES",
+                    "url": "/pets/pethelp",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "HEALTHY PETS",
+                    "url": "/pets/healthypets",
                     "style": "dropdown",
                     "type": "Link"
                 }
             ]            
         },
         {
-            "label": "Abouttttttttttttt",
-            "altText": "About",
+            "label": "HOW TO HELP",
+            "altText": "hot to help",
+            "url": "/howtohelp",
+            "labelStyle": "primary",
+            "type": "SubNav",
+            "links": [
+                {
+                    "label": "DONATE",
+                    "url": "/howtohelp/donate",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "FOSTER",
+                    "url": "/howtohelp/foster",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "VOLUNTEER",
+                    "url": "/howtohelp/volunteer",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "EVENTS",
+                    "url": "/howtohelp/events",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "STORE",
+                    "url": "/howtohelp/store",
+                    "style": "dropdown",
+                    "type": "Link"
+                }
+            ]            
+        },
+        {
+            "label": "OUR SERVICE",
+            "altText": "Contact",
+            "url": "/ourservice",
+            "labelStyle": "primary",
+            "type": "SubNav",
+            "links": [
+                {
+                    "label": "VETERINARY CARE",
+                    "url": "/ourservice/veterinarycare",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "COUNTY ANIMAL SERVICE",
+                    "url": "/ourservice/countyanimalservice",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "COMMUNITY CATS",
+                    "url": "/ourservice/communitycats",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "PETS FOR LIFE",
+                    "url": "/ourservice/petsforlife",
+                    "style": "dropdown",
+                    "type": "Link"
+                }
+            ]            
+        },
+        {
+            "label": "ABOUT",
+            "altText": "Contact",
             "url": "/about",
             "labelStyle": "primary",
             "type": "SubNav",
             "links": [
                 {
-                    "label": "About Sub1",
-                    "url": "/about/aboutsub1",
+                    "label": "PEOPLE",
+                    "url": "/about/people",
                     "style": "dropdown",
                     "type": "Link"
                 },
                 {
-                    "label": "About Sub2",
-                    "url": "/about/aboutsub2",
+                    "label": "20 YEARS OF LIFESAVING",
+                    "url": "/about/lifesaving",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "HUMAN ANIMAL SUPPORT SERVICE",
+                    "url": "/about/animalsupportservice",
+                    "style": "dropdown",
+                    "type": "Link"
+                },
+                {
+                    "label": "LOCATIONS & CONTACTS",
+                    "url": "/about/locationsandcontacts",
                     "style": "dropdown",
                     "type": "Link"
                 }
             ]            
         },
         {
-            "label": "Contact",
+            "label": "NEWS",
             "altText": "Contact",
+            "url": "/news",
             "labelStyle": "primary",
             "type": "SubNav",
             "links": [
                 {
-                    "label": "Contact Sub1 contact contact contact",
-                    "url": "/contactsub1",
+                    "label": "BLOG",
+                    "url": "/news/blog",
                     "style": "dropdown",
                     "type": "Link"
                 },
                 {
-                    "label": "Contact Sub2",
-                    "url": "/contactsub2",
+                    "label": "PRESS",
+                    "url": "/news/press",
                     "style": "dropdown",
                     "type": "Link"
                 }
@@ -79,15 +176,15 @@
     ],
     "secondaryLinks": [
         {
-            "label": "Sign up",
-            "altText": "Sign up",
-            "url": "/signup",
+            "label": "Favorites",
+            "altText": "favorites",
+            "url": "/favorites",
             "style": "primary",
             "type": "Button"
         },
         {
-            "label": "Log in",
-            "url": "/login",
+            "label": "Donate",
+            "url": "/donate",
             "style": "primary",
             "type": "Button"
         }

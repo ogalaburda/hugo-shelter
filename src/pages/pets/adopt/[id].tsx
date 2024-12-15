@@ -1,13 +1,16 @@
 import { useRouter } from 'next/router';
-import petData from '../../../data/pets.json';
+import petData from '../../../../data/pets.json';
 import { useState } from 'react';
-import Button from '../../components/blocks/button';
-import { calculateAge } from '../../utils/ageCalculator';
+import Button from '../../../components/blocks/button';
+import { calculateAge } from '../../../utils/ageCalculator';
 import { Pet } from 'utils/interface'; // Importing the Pet interface
 import ZoomSlider from 'components/sections/slider';
 import { getPetDetails } from 'utils/utils';
 import ToggleButton from 'components/blocks/toggleButton';
 import { MediaDisplayProps } from 'components/blocks/MediaDisplayBlock';
+import shelters from 'components/sections/shelterInformation';
+import ShareButton from 'components/blocks/shareButton';
+import { useFavorites } from 'context/favoritesContext';
 
 const PetProfile = () => {
     const router = useRouter();
@@ -29,6 +32,9 @@ const PetProfile = () => {
         );
     }
 
+    // Dynamically render shelter information based on pet location
+    const shelterInfo = shelters[pet.location];
+
     // Prepare media items for the slider
     const mediaItems: MediaDisplayProps[] = pet.additionalImages.map((url) => ({
         url,
@@ -38,6 +44,16 @@ const PetProfile = () => {
 
     const age = calculateAge(pet.dob); // Calculate age dynamically
     const petDetails = getPetDetails(pet, age);
+
+    const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+
+    const handleFavoriteClick = () => {
+        if (isFavorite(pet.id)) {
+            removeFavorite(pet.id);
+        } else {
+            addFavorite({ id: pet.id, name: pet.name, ...pet }); // Add the full pet object
+        }
+    };
 
     return (
         <div className="max-w-6xl mx-auto p-4 space-y-6">
@@ -67,15 +83,22 @@ const PetProfile = () => {
                         />
                     </div>
                     {/* Main Image + Slider */}
-                    {mediaItems.length > 0 ? <ZoomSlider mediaItems={mediaItems} /> : 
-                    <p>No media available for this pet.</p>}
+                    {mediaItems.length > 0 ? <ZoomSlider mediaItems={mediaItems} /> :
+                        <p>No media available for this pet.</p>}
                 </div>
 
                 {/* Right Container */}
                 <div className="space-y-4">
                     <div className="flex justify-end space-x-4">
-                        <Button label="Favorite" variant="secondary" onClick={() => console.log('Favorite button clicked')} />
-                        <Button label="Share" variant="secondary" onClick={() => console.log('Share button clicked')} />
+                        <Button
+                            label={isFavorite(pet.id) ? 'Remove from Favorites' : 'Favorite'}
+                            variant="secondary"
+                            onClick={handleFavoriteClick}
+                        />
+                        <ShareButton
+                            url={window.location.href} // Current page URL
+                            text="Check out this amazing pet!" // Custom text for sharing
+                        />
                     </div>
 
                     <ul className="space-y-2">
@@ -100,17 +123,54 @@ const PetProfile = () => {
                     <button className={`px-4 py-2 ${currentTab === 'history' ? 'border-b-2 border-blue-500' : ''}`} onClick={() => setCurrentTab('history')}>
                         History
                     </button>
+                    <button
+                        className={`px-4 py-2 ${currentTab === 'location' ? 'border-b-2 border-blue-500' : ''}`}
+                        onClick={() => setCurrentTab('location')}
+                    >
+                        Shelter Information
+                    </button>
                 </div>
+                {/* Tab Content */}
                 {currentTab === 'description' && <p>{pet.description || 'No description available.'}</p>}
                 {currentTab === 'history' && <p>{pet.history || 'No history available.'}</p>}
+                {currentTab === 'location' && (
+                    <div>
+                        {shelterInfo ? (
+                            <div>
+                                <h2 className="text-lg font-bold">{shelterInfo.name}</h2>
+                                {shelterInfo.address && <p>Address: {shelterInfo.address}</p>}
+                                {shelterInfo.phone && <p>Phone: {shelterInfo.phone}</p>}
+                                {shelterInfo.email && <p>Email: {shelterInfo.email}</p>}
+                                {shelterInfo.openingHours && <p>Opening Hours: {shelterInfo.openingHours}</p>}
+                                {shelterInfo.coordinator && <p>Coordinator: {shelterInfo.coordinator}</p>}
+                                {shelterInfo.details && <p>Details: {shelterInfo.details}</p>}
+                            </div>
+                        ) : (
+                            <p>No shelter information available.</p>
+                        )}
+                    </div>
+                )}
             </div>
 
             {/* Bottom Buttons */}
             <div className="flex justify-between">
                 <Button label="Donate" variant="primary" onClick={() => console.log('Donate button clicked')} />
                 <div className="space-x-4">
-                    <Button label="Foster" variant="success" disabled={!isAvailable} onClick={() => console.log('Foster button clicked')} />
-                    <Button label="Adopt" variant="success" disabled={!isAvailable} onClick={() => console.log('Adopt button clicked')} />
+                    {/* Foster Button */}
+                    {pet.type === 'dog' && (
+                        <Button
+                            label="Foster"
+                            variant="success"
+                            disabled={!isAvailable}
+                            onClick={() => console.log('Foster button clicked')}
+                        />
+                    )}
+                    <Button
+                        label="Adopt"
+                        variant="success"
+                        disabled={!isAvailable}
+                        onClick={() => console.log('Adopt button clicked')}
+                    />
                 </div>
             </div>
         </div>

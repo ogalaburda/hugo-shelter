@@ -44,6 +44,7 @@ export const initialFormData = {
 export const getPetDetails = (pet: Pet, age: number | "unknown"): { label: string; value: string }[] => {
     return [
         { label: 'Age', value: `${age} years` },
+        { label: 'Type', value: pet.type },
         { label: 'Time In Shelter', value: `${calculateAge(pet.dis)} years` },
         { label: 'Gender', value: pet.sex || 'Unknown' },
         { label: 'Color', value: pet.color || 'Unknown' },

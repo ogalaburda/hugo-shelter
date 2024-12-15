@@ -2,7 +2,7 @@ import React from 'react';
 import AddPetForm from 'components/forms/addPetForm';
 
 const AddPetPage = () => {
-    const handleAddPet = async (formData: FormData) => {
+    const handleAddPet = async (formData: FormData): Promise<{ message: string }> => {
         try {
             const response = await fetch('/api/add-pet', {
                 method: 'POST',
@@ -10,15 +10,15 @@ const AddPetPage = () => {
             });
 
             if (response.ok) {
-                alert('Pet added successfully!');
+                const responseData = await response.json(); // Parse the response to get the message
+                return { message: responseData.message || 'Pet added successfully!' };
             } else {
                 const errorData = await response.json();
-                console.error('Error adding pet:', errorData);
-                alert('Failed to add pet.');
+                return { message: errorData.message || 'Failed to add pet.' };
             }
         } catch (error) {
             console.error('Error submitting the form:', error);
-            alert('An error occurred while adding the pet.');
+            return { message: 'An error occurred while adding the pet.' };
         }
     };
 
